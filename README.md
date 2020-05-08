@@ -3,8 +3,8 @@
 This is my submission for the Mobile Development Shopify Coding Challenge
 
 ## Tasks
-- [X] Create a word search mobile app for Android
-- [X] The word search should have at least a 10x10 grid
+- [X] Create an Android/iOS word search mobile app
+- [X] The word search should have a 10x10 grid
 - [X] Include at least the following 6 words: Swift, Kotlin, ObjectiveC, Variable, Java, Mobile
 - [X] Keep track of how many words a user has found
 - [X] Make sure it compiles successfully
