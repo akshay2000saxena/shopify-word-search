@@ -13,3 +13,10 @@ This is my submission for the Mobile Development Shopify Coding Challenge
 - [X] Make it look good in portrait and landscape
 - [X] Feel free to add any additional features you can think of
 - [ ] Allow the user to find the words by swiping over the words
+
+
+## Screenshots
+
+<p align="left">
+  <img alt="" src="screenshots/Annotation 2020-05-08 033142.jpg" width="360" />
+</p>
