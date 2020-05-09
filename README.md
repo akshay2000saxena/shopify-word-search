@@ -39,9 +39,19 @@ The first screenshot shows the screen before you start the game.
   <img alt="" src="screenshots/Annotation 2020-05-08 234102.jpg" width="360" /><br>
 </p>
 
+
 The second screenshot shows the screen when all but one word is found and the last word is almost found. The highlighted tiles will spell out the string the player is forming and is cleared on finding the word.
 If word is not found, the user can press the X button to revert the incorrect highlighted titles into black tiles and start the new string from scratch.
+The active score counter is in the form of the items in the list which are highlighted in the respective color and scratched off.
 
 <p align="left">
   <img alt="" src="screenshots/Annotation 2020-05-08 232830.jpg" width="360" /><br>
+</p>
+
+
+### Game Over Screen
+The third screenshot shows the screen where the user has found all the words. (Fix on opacity needed) 
+
+<p align="left">
+  <img alt="" src="screenshots/Annotation 2020-05-09 003215.jpg" width="360" /><br>
 </p>

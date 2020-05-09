@@ -39,11 +39,13 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 36,
         // margin:,
-        height: 100
+        height: 100,
+        fontWeight: 'bold'
     },
     text2: {
         fontSize: 22,
-        margin: 15
+        margin: 15,
+        fontWeight: 'bold'
     }
 
 });
