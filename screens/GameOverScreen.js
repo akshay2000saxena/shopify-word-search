@@ -18,6 +18,8 @@ const GameOverScreen = props => {
                         props.setSelectedLetters([]);
                         props.setCorrectedLetters([])
                         props.setCorrectAnswers([])
+                        props.setColorString(new Map())
+                        props.changeIndex(0)
                     }}
                 />
             </View>

@@ -19,3 +19,12 @@ export const correct = [
     'Java',
     'Mobile',
 ]
+
+export const colors = [
+    '#fae036', // light yellow
+    '#f88', // light red
+    '#ae8eff', // light purple
+    '#82fc49', // light green
+    '#7ce4eb', // light blue
+    '#f7bf8b', // light orange
+]

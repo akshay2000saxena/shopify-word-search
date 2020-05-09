@@ -16,12 +16,13 @@ import List from '../components/List'
 import Header from '../components/Header'
 import GameOverScreen from '../screens/GameOverScreen'
 
-import { data } from '../data/data'
-import { correct } from '../data/data'
+import { data, correct, colors } from '../data/data'
 
 var correctStyle = {}
 var textColor = {}
 var words = correct.map(v => v.toLowerCase());
+var colorIndex = 0;
+var tileColor = colors[colorIndex];
 
 
 const Grid = props => {
@@ -31,13 +32,22 @@ const Grid = props => {
     const [selectedLetters, setSelectedLetters] = useState([])
     const [correctedLetters, setCorrectedLetters] = useState([])
     const [correctAnswers, setCorrectAnswers] = useState([])
+    const [colorLetters, setColorLetters] = useState(new Map())
+    const [colorString, setColorString] = useState(new Map())
+
 
     if (words.includes(string.toLowerCase())) {
         setCorrectAnswers(correctAnswers => [...correctAnswers, string.toLowerCase()])
         setCorrectedLetters(correctedLetters => [...correctedLetters, ...selectedLetters])
+        setColorString(new Map(colorString.set(string.toLowerCase(), colors[colorIndex])))
+        var colorMap = {};
+        for (var i = 0; i < selectedLetters.length; i++) {
+            colorMap[selectedLetters[i]] = colors[colorIndex];
+        }
+        setColorLetters(Object.assign({}, colorLetters, colorMap));
         setSelectedLetters([])
         updatedString("");
-        console.log(correctAnswers);
+        colorIndex++;
     }
 
     const item = {
@@ -50,13 +60,15 @@ const Grid = props => {
         borderRadius: 7,
     };
 
+    const tileColor = colors[colorIndex];
+
     return (
         <View style={styles.con}>
             {correct.length !== correctAnswers.length ?
                 <View>
                     <View style={{ flex: 1, flexDirection: 'column' }}>
                         <View style={styles.header}>
-                            <Header title="WORD SEARCH" />
+                            <Header title="Word Search" />
                             <View style={styles.iconHeader}>
                                 <Ionicons
                                     name="ios-refresh"
@@ -66,7 +78,9 @@ const Grid = props => {
                                         updatedString("");
                                         setSelectedLetters([]);
                                         setCorrectedLetters([])
-                                        setCorrectAnswers([])
+                                        setCorrectAnswers([]);
+                                        setColorLetters(new Map());
+                                        colorIndex = 0;
                                     }}
                                 />
                             </View>
@@ -78,9 +92,10 @@ const Grid = props => {
                                     <Tile
                                         text={item.value}
                                         ind={item.key}
-
+                                        tileColor={tileColor}
+                                        colors={colors}
+                                        colorLetters={colorLetters}
                                         startWordString={item => {
-                                            console.log(item)
                                             if (selectedLetters.includes(item)) {
                                                 updatedString(string.replace(item, ""))
                                             } else {
@@ -89,16 +104,13 @@ const Grid = props => {
                                         }}
                                         selectLetters={item => {
                                             setSelectedLetters(selectedLetters => [...selectedLetters, item])
-                                            console.log(selectedLetters)
                                         }}
                                         removeLetters={item => {
                                             var newArr = selectedLetters.filter(
                                                 j => j !== item
                                             );
                                             setSelectedLetters(newArr);
-
                                             var ans = "";
-
                                             newArr.forEach((element) => {
                                                 for (var i = 0; i < data.length; i++) {
                                                     if (data[i].key === element) {
@@ -106,7 +118,6 @@ const Grid = props => {
                                                     }
                                                 }
                                             })
-
                                             updatedString(ans);
                                         }}
 
@@ -124,13 +135,6 @@ const Grid = props => {
                                 <View>
                                     <Text style={{ fontSize: 18 }}>Word: {string}</Text>
                                 </View>
-                                {/* <Button
-                                    title="random"
-                                    onPress={() => {
-                                        rand = wordsearch(correct, 10, 10);
-                                        console.log(rand);
-                                    }}
-                                /> */}
 
                                 <View>
                                     <Ionicons
@@ -147,6 +151,7 @@ const Grid = props => {
 
                             <View style={styles.list}>
                                 <List
+                                    colorString={colorString}
                                     correctAnswers={correctAnswers}
                                 />
                             </View>
@@ -159,6 +164,11 @@ const Grid = props => {
                     setSelectedLetters={setSelectedLetters}
                     setCorrectedLetters={setCorrectedLetters}
                     setCorrectAnswers={setCorrectAnswers}
+                    setColorString={setColorString}
+                    setColorLetters={setColorLetters}
+                    changeIndex={item => {
+                        colorIndex = item;
+                    }}
                 />}
 
         </View>
@@ -201,6 +211,9 @@ const styles = StyleSheet.create({
     },
     iconHeader: {
         marginRight: 10
+    },
+    gameOver: {
+        opacity: 0.6
     }
 });
 

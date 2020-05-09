@@ -7,12 +7,14 @@ import { correct } from '../data/data'
 const ListItem = props => {
     var textColor = {}
     var styleColor = {}
-    if (props.correctAnswers.includes(props.text.toLowerCase())) {
+    var textString = props.text.toLowerCase()
+    if (props.correctAnswers.includes(textString)) {
         textColor = {
             color: 'black',
             textDecorationLine: 'line-through'
         }
-        styleColor = { backgroundColor: 'yellow' }
+        var colorText = props.colorString.get(textString)
+        styleColor = { backgroundColor: colorText }
     }
     return (
         <View style={[styles.item, styleColor]}>
@@ -31,6 +33,7 @@ const List = props => {
                 data={correct}
                 renderItem={({ item }) =>
                     <ListItem
+                        colorString={props.colorString}
                         text={item}
                         correctAnswers={props.correctAnswers}
                     />}

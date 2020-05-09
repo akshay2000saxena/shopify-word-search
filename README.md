@@ -21,12 +21,12 @@ This is my submission for the Mobile Development Shopify Coding Challenge
 The first screenshot shows the screen before you start the game.
 
 <p align="left">
-  <img alt="" src="screenshots/Annotation 2020-05-08 033706.jpg" width="360" />
+  <img alt="" src="screenshots/Annotation 2020-05-08 234102.jpg" width="360" />
 </p>
 
-The second screenshot shows the screen when one word is found and the other word is almost found. The highlighted tiles will spell out the string the player is forming and is cleared on finding the word.
+The second screenshot shows the screen when all but one word is found and the last word is almost found. The highlighted tiles will spell out the string the player is forming and is cleared on finding the word.
 If word is not found, the user can press the X button to revert the incorrect highlighted titles into black tiles and start the new string from scratch.
 
 <p align="left">
-  <img alt="" src="screenshots\Annotation 2020-05-08 033818.jpg" width="360" />
+  <img alt="" src="screenshots/Annotation 2020-05-08 232830.jpg" width="360" />
 </p>

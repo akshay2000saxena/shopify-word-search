@@ -16,12 +16,14 @@ const Tile = props => {
     var correctText = {}
 
     if (props.selectedLetters.includes(props.ind)) {
-        correctStyle = { backgroundColor: 'yellow' }
+        correctStyle = { backgroundColor: props.tileColor }
         correctText = { color: 'black' }
     }
 
     if (props.correctLetters.includes(props.ind)) {
-        correctStyle = { backgroundColor: 'yellow' }
+
+        var color = props.colorLetters[props.ind];
+        correctStyle = { backgroundColor: color }
         correctText = { color: 'black' }
     }
 
