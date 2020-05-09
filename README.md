@@ -38,6 +38,9 @@ The first screenshot shows the screen before you start the game.
 <p align="left">
   <img alt="" src="screenshots/Annotation 2020-05-08 234102.jpg" width="360" /><br>
 </p>
+<p align="left">
+  <img alt="" src="screenshots/landscape1.jpg" width="360" /><br>
+</p>
 
 
 The second screenshot shows the screen when all but one word is found and the last word is almost found. The highlighted tiles will spell out the string the player is forming and is cleared on finding the word.
@@ -46,6 +49,9 @@ The active score counter is in the form of the items in the list which are highl
 
 <p align="left">
   <img alt="" src="screenshots/Annotation 2020-05-08 232830.jpg" width="360" /><br>
+</p>
+<p align="left">
+  <img alt="" src="screenshots/landscape2.jpg" width="360" /><br>
 </p>
 
 
