@@ -4,8 +4,8 @@ This is my submission for the Mobile Development Shopify Coding Challenge
 
 ## Pre-requisites
 
-- [Node.js]
-- [Expo CLI]
+- Node.js
+- Expo CLI
 - Android Studio/ XCode
 - A running Android or iOS emulator
 
