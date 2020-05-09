@@ -14,19 +14,22 @@ export default function App() {
     setOrientation(!orientation);
   })
 
-  let tag;
+  // let tag;
 
-  if (orientation) {
-    tag = <Grid />;
-  } else {
-    tag = <GridLandscape />
-  }
+  // if (orientation) {
+  //   tag = <Grid />;
+  // } else {
+  //   tag = <GridLandscape />
+  // }
+
+  // var tag = orientation ? <Grid /> : <GridLandscape />
 
 
   return (
     <View style={styles.container}>
       <View style={styles.grid}>
         <Grid />
+        {/* {tag} */}
       </View>
     </View>
   );

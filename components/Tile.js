@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -12,8 +12,25 @@ import {
 
 const Tile = props => {
 
+    var orientation = 'portrait';
     var correctStyle = {}
     var correctText = {}
+
+    const [height, setHeight] = useState(Dimensions.get('window').height)
+    const [width, setWidth] = useState(Dimensions.get('window').width)
+
+    useEffect(() => {
+        const updateLayout = () => {
+            setHeight(Dimensions.get('window').height)
+            setWidth(Dimensions.get('window').width)
+        };
+
+        Dimensions.addEventListener('change', updateLayout)
+        // return () => {
+        //     Dimensions.removeEventListener('change', updateLayout)
+        // };
+    })
+
 
     if (props.selectedLetters.includes(props.ind)) {
         correctStyle = { backgroundColor: props.tileColor }
@@ -27,23 +44,44 @@ const Tile = props => {
         correctText = { color: 'black' }
     }
 
-
-    return (
-        <TouchableOpacity
-            onPress={() => {
-                props.startWordString(props.text);
-                props.selectLetters(props.ind);
-                if (props.selectedLetters.includes(props.ind)) {
-                    props.removeLetters(props.ind);
-                }
-            }}
-            style={[styles.item, correctStyle]}
-        >
-            <View>
-                <Text style={[styles.itemText, correctText]}>{props.text}</Text>
-            </View>
-        </TouchableOpacity >
-    );
+    if (height < 500) {
+        return (
+            <TouchableOpacity
+                onPress={() => {
+                    props.startWordString(props.text);
+                    props.selectLetters(props.ind);
+                    if (props.selectedLetters.includes(props.ind)) {
+                        props.removeLetters(props.ind);
+                    }
+                    console.log('landscape')
+                }}
+                style={[styles.landscapeItem, correctStyle, { height: height / 14 }]}
+            >
+                <View>
+                    <Text style={[styles.itemText, correctText]}>{props.text}</Text>
+                </View>
+            </TouchableOpacity >
+        );
+    } else {
+        return (
+            <TouchableOpacity
+                onPress={() => {
+                    props.startWordString(props.text);
+                    props.selectLetters(props.ind);
+                    if (props.selectedLetters.includes(props.ind)) {
+                        props.removeLetters(props.ind);
+                    }
+                    console.log('portrait')
+                }}
+                // style={[orientationStyle, correctStyle]}
+                style={[styles.item, correctStyle, { height: width / 10 }]}
+            >
+                <View>
+                    <Text style={[styles.itemText, correctText]}>{props.text}</Text>
+                </View>
+            </TouchableOpacity >
+        );
+    }
 };
 
 const styles = StyleSheet.create({
@@ -56,7 +94,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         margin: 1,
-        height: Dimensions.get('window').width / 10,
+        // height: Dimensions.get('window').width / 10,
         borderRadius: 7,
     },
     selectedItem: {
@@ -77,7 +115,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         margin: 1,
-        height: Dimensions.get('window').height / 14,
+        // height: Dimensions.get('window').height / 14,
+        // height: 1,
         borderRadius: 7,
     }
 });

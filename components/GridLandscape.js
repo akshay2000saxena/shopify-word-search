@@ -11,7 +11,7 @@ import {
 
 import { Ionicons } from '@expo/vector-icons';
 
-import Tile from '../components/Tile'
+import TileLandscape from '../components/TileLandscape'
 import List from '../components/List'
 import Header from '../components/Header'
 import GameOverScreen from '../screens/GameOverScreen'
@@ -76,7 +76,7 @@ const GridLandscape = props => {
                             <FlatList
                                 data={data}
                                 renderItem={({ item }) =>
-                                    <Tile
+                                    <TileLandscape
                                         text={item.value}
                                         ind={item.key}
 

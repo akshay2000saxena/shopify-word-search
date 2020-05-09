@@ -50,7 +50,7 @@ The active score counter is in the form of the items in the list which are highl
 
 
 ### Game Over Screen
-The third screenshot shows the screen where the user has found all the words. (Fix on opacity needed) 
+The third screenshot shows the screen where the user has found all the words. (Fix on opacity=0.2 needed) 
 
 <p align="left">
   <img alt="" src="screenshots/Annotation 2020-05-09 003215.jpg" width="360" /><br>
