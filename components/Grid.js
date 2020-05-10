@@ -7,7 +7,8 @@ import {
     Dimensions,
     TouchableOpacity,
     Button,
-    TouchableHighlight
+    TouchableHighlight,
+    ScrollView
 } from 'react-native'
 
 import { Ionicons } from '@expo/vector-icons';
@@ -340,12 +341,13 @@ const Grid = props => {
                                         />
                                     </View>
                                 </View>
-
                                 <View style={styles.list}>
+                                    {/* <ScrollView > */}
                                     <List
                                         colorString={colorString}
                                         correctAnswers={correctAnswers}
                                     />
+                                    {/* </ScrollView> */}
                                 </View>
                             </View>
                         </View>
@@ -396,6 +398,7 @@ const styles = StyleSheet.create({
     },
     list: {
         height: Dimensions.get('window').height / 1.5,
+        // backgroundColor: 'red'
     },
     button: {
         borderRadius: 10,

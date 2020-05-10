@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet, FlatList, Dimensions } from 'react-native'
+import { Text, View, StyleSheet, FlatList, Dimensions, ScrollView } from 'react-native'
 
 import { correct } from '../data/data'
 
