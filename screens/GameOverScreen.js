@@ -4,9 +4,11 @@ import { View, StyleSheet, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const GameOverScreen = props => {
+
     return (
         <View style={styles.screen}>
             <Text style={styles.text}> You Win!</Text>
+            <Text style={styles.text2}> You took: {props.min}:{props.sec}</Text>
             <Text style={styles.text2}> Play Again?</Text>
             <View style={styles.iconHeader}>
                 <Ionicons
@@ -20,6 +22,8 @@ const GameOverScreen = props => {
                         props.setCorrectAnswers([])
                         props.setColorString(new Map())
                         props.changeIndex(0)
+                        props.setIsActive(true)
+                        props.setRemainingSecs(0)
                     }}
                 />
             </View>
@@ -38,7 +42,6 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 36,
-        // margin:,
         height: 100,
         fontWeight: 'bold'
     },

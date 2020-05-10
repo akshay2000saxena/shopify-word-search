@@ -6,7 +6,8 @@ import {
     FlatList,
     Dimensions,
     TouchableOpacity,
-    Button
+    Button,
+    TouchableHighlight
 } from 'react-native'
 
 import { Ionicons } from '@expo/vector-icons';
@@ -23,6 +24,16 @@ var textColor = {}
 var words = correct.map(v => v.toLowerCase());
 var colorIndex = 0;
 var tileColor = colors[colorIndex];
+var min = 0;
+var sec = 0;
+
+const formatNumber = number => `0${number}`.slice(-2);
+
+const getRemaining = (time) => {
+    const mins = Math.floor(time / 60);
+    const secs = time - mins * 60;
+    return { mins: formatNumber(mins), secs: formatNumber(secs) };
+}
 
 
 const Grid = props => {
@@ -36,6 +47,27 @@ const Grid = props => {
     const [colorString, setColorString] = useState(new Map())
     const [height, setHeight] = useState(Dimensions.get('window').height)
     const [width, setWidth] = useState(Dimensions.get('window').width)
+    const [timerStart, setTimerStart] = useState(false)
+
+
+    const [remainingSecs, setRemainingSecs] = useState(0);
+    const [isActive, setIsActive] = useState(false);
+    const { mins, secs } = getRemaining(remainingSecs);
+
+    const [constTime, setConstTime] = useState("")
+
+    useEffect(() => {
+        let interval = null;
+        if (isActive) {
+            interval = setInterval(() => {
+                setRemainingSecs(remainingSecs => remainingSecs + 1);
+            }, 1000);
+        } else if (!isActive && remainingSecs !== 0) {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [isActive, remainingSecs]);
+
 
     useEffect(() => {
         const updateLayout = () => {
@@ -44,9 +76,9 @@ const Grid = props => {
         };
 
         Dimensions.addEventListener('change', updateLayout)
-        // return () => {
-        //     Dimensions.removeEventListener('change', updateLayout)
-        // };
+        return () => {
+            Dimensions.removeEventListener('change', updateLayout)
+        };
     })
 
 
@@ -54,15 +86,23 @@ const Grid = props => {
         setCorrectAnswers(correctAnswers => [...correctAnswers, string.toLowerCase()])
         setCorrectedLetters(correctedLetters => [...correctedLetters, ...selectedLetters])
         setColorString(new Map(colorString.set(string.toLowerCase(), colors[colorIndex])))
+        if (correct.length === correctAnswers.length) {
+            setConstTime(`${mins} : ${secs}`)
+            console.log(constTime)
+        }
         var colorMap = {};
         for (var i = 0; i < selectedLetters.length; i++) {
             colorMap[selectedLetters[i]] = colors[colorIndex];
         }
+        min = mins
+        sec = secs
         setColorLetters(Object.assign({}, colorLetters, colorMap));
         setSelectedLetters([])
         updatedString("");
         colorIndex++;
     }
+
+
 
     const item = {
         backgroundColor: 'black',
@@ -94,6 +134,7 @@ const Grid = props => {
                         <View style={styles.header}>
                             <Header title="Word Search" />
                             <View style={styles.iconHeader}>
+                                <Text>{`${mins} : ${secs}`}</Text>
                                 <Ionicons
                                     name="ios-refresh"
                                     size={32}
@@ -105,6 +146,8 @@ const Grid = props => {
                                         setCorrectAnswers([])
                                         setColorLetters(new Map());
                                         colorIndex = 0;
+                                        setRemainingSecs(0);
+                                        setIsActive(false);
                                     }}
                                 />
                             </View>
@@ -130,7 +173,7 @@ const Grid = props => {
                                             }}
                                             selectLetters={item => {
                                                 setSelectedLetters(selectedLetters => [...selectedLetters, item])
-                                                console.log(selectedLetters)
+                                                setIsActive(true)
                                             }}
                                             removeLetters={item => {
                                                 var newArr = selectedLetters.filter(
@@ -195,6 +238,10 @@ const Grid = props => {
                         changeIndex={item => {
                             colorIndex = item;
                         }}
+                        setIsActive={setIsActive}
+                        setRemainingSecs={setRemainingSecs}
+                        min={min}
+                        sec={sec}
                     />}
 
             </View>
@@ -209,6 +256,9 @@ const Grid = props => {
                         <View style={{ flex: 1, flexDirection: 'column' }}>
                             <View style={styles.header}>
                                 <Header title="Word Search" />
+                                {/* <View>
+                                    </View> */}
+                                <Text>{`${mins} : ${secs}`}</Text>
                                 <View style={styles.iconHeader}>
                                     <Ionicons
                                         name="ios-refresh"
@@ -221,6 +271,8 @@ const Grid = props => {
                                             setCorrectAnswers([]);
                                             setColorLetters(new Map());
                                             colorIndex = 0;
+                                            setRemainingSecs(0);
+                                            setIsActive(false);
                                         }}
                                     />
                                 </View>
@@ -244,6 +296,7 @@ const Grid = props => {
                                             }}
                                             selectLetters={item => {
                                                 setSelectedLetters(selectedLetters => [...selectedLetters, item])
+                                                setIsActive(true)
                                             }}
                                             removeLetters={item => {
                                                 var newArr = selectedLetters.filter(
@@ -260,7 +313,6 @@ const Grid = props => {
                                                 })
                                                 updatedString(ans);
                                             }}
-
                                             selectedLetters={selectedLetters}
                                             correctLetters={correctedLetters}
                                             style={item}
@@ -309,6 +361,10 @@ const Grid = props => {
                         changeIndex={item => {
                             colorIndex = item;
                         }}
+                        setIsActive={setIsActive}
+                        setRemainingSecs={setRemainingSecs}
+                        min={min}
+                        sec={sec}
                     />}
 
             </View>
@@ -362,7 +418,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 30
     },
     iconHeader: {
-        marginRight: 10
+        marginRight: 10,
+        flexDirection: 'row',
+        // padding: 10
     },
     gameOver: {
         opacity: 0.6

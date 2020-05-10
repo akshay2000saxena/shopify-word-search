@@ -8,11 +8,8 @@ import {
     Platform
 } from 'react-native';
 
-
-
 const Tile = props => {
 
-    var orientation = 'portrait';
     var correctStyle = {}
     var correctText = {}
 
@@ -53,7 +50,7 @@ const Tile = props => {
                     if (props.selectedLetters.includes(props.ind)) {
                         props.removeLetters(props.ind);
                     }
-                    console.log('landscape')
+                    // console.log('landscape')
                 }}
                 style={[styles.landscapeItem, correctStyle, { height: height / 14 }]}
             >
@@ -71,9 +68,8 @@ const Tile = props => {
                     if (props.selectedLetters.includes(props.ind)) {
                         props.removeLetters(props.ind);
                     }
-                    console.log('portrait')
+                    // console.log('portrait')
                 }}
-                // style={[orientationStyle, correctStyle]}
                 style={[styles.item, correctStyle, { height: width / 10 }]}
             >
                 <View>
@@ -94,7 +90,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         margin: 1,
-        // height: Dimensions.get('window').width / 10,
         borderRadius: 7,
     },
     selectedItem: {
@@ -103,7 +98,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         margin: 1,
-        height: Dimensions.get('window').width / 10,
         borderRadius: 7,
     },
     selectedItemText: {
@@ -115,8 +109,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         flex: 1,
         margin: 1,
-        // height: Dimensions.get('window').height / 14,
-        // height: 1,
         borderRadius: 7,
     }
 });
