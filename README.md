@@ -26,7 +26,7 @@ Type these commands into your command line to reproduce:
 - [ ] Randomize where the words are placed
 - [X] Make a slick UI with smooth animations
 - [X] Make it look good in portrait and landscape
-- [X] Feel free to add any additional features you can think of
+- [X] Additional features: Timer
 - [ ] Allow the user to find the words by swiping over the words
 
 
@@ -36,10 +36,10 @@ Type these commands into your command line to reproduce:
 The first screenshot shows the screen before you start the game.
 
 <p align="left">
-  <img alt="" src="screenshots/Annotation 2020-05-08 234102.jpg" width="360" /><br>
+  <img alt="" src="screenshots/portrait2.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/landscape1.jpg" width="1000" /><br>
+  <img alt="" src="screenshots/landscape2.jpg" width="1000" /><br>
 </p>
 
 
@@ -48,10 +48,10 @@ If word is not found, the user can press the X button to revert the incorrect hi
 The active score counter is in the form of the items in the list which are highlighted in the respective color and scratched off.
 
 <p align="left">
-  <img alt="" src="screenshots/Annotation 2020-05-08 232830.jpg" width="360" /><br>
+  <img alt="" src="screenshots/portrait1.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/landscape2.jpg" width="1000" /><br>
+  <img alt="" src="screenshots/landscape1.jpg" width="1000" /><br>
 </p>
 
 
@@ -61,3 +61,9 @@ The third screenshot shows the screen where the user has found all the words. (F
 <p align="left">
   <img alt="" src="screenshots/Annotation 2020-05-09 003215.jpg" width="360" /><br>
 </p>
+
+## Additional Feature
+
+### Timer
+
+User can see how long it takes for them to beat the game

@@ -76,9 +76,9 @@ const Grid = props => {
         };
 
         Dimensions.addEventListener('change', updateLayout)
-        return () => {
-            Dimensions.removeEventListener('change', updateLayout)
-        };
+        // return () => {
+        //     Dimensions.removeEventListener('change', updateLayout)
+        // };
     })
 
 
@@ -88,7 +88,6 @@ const Grid = props => {
         setColorString(new Map(colorString.set(string.toLowerCase(), colors[colorIndex])))
         if (correct.length === correctAnswers.length) {
             setConstTime(`${mins} : ${secs}`)
-            console.log(constTime)
         }
         var colorMap = {};
         for (var i = 0; i < selectedLetters.length; i++) {
@@ -133,23 +132,25 @@ const Grid = props => {
                     <View style={{ flex: 1, flexDirection: 'column' }}>
                         <View style={styles.header}>
                             <Header title="Word Search" />
-                            <View style={styles.iconHeader}>
-                                <Text>{`${mins} : ${secs}`}</Text>
-                                <Ionicons
-                                    name="ios-refresh"
-                                    size={32}
-                                    color="black"
-                                    onPress={() => {
-                                        updatedString("");
-                                        setSelectedLetters([]);
-                                        setCorrectedLetters([])
-                                        setCorrectAnswers([])
-                                        setColorLetters(new Map());
-                                        colorIndex = 0;
-                                        setRemainingSecs(0);
-                                        setIsActive(false);
-                                    }}
-                                />
+                            <View style={styles.secondHeader}>
+                                <Text style={styles.timer}>{`${mins} : ${secs}`}</Text>
+                                <View style={styles.iconHeader}>
+                                    <Ionicons
+                                        name="ios-refresh"
+                                        size={32}
+                                        color="black"
+                                        onPress={() => {
+                                            updatedString("");
+                                            setSelectedLetters([]);
+                                            setCorrectedLetters([])
+                                            setCorrectAnswers([])
+                                            setColorLetters(new Map());
+                                            colorIndex = 0;
+                                            setRemainingSecs(0);
+                                            setIsActive(false);
+                                        }}
+                                    />
+                                </View>
                             </View>
                         </View>
                         <View style={{ flex: 1, flexDirection: 'row' }}>
@@ -164,7 +165,6 @@ const Grid = props => {
                                             colors={colors}
                                             colorLetters={colorLetters}
                                             startWordString={item => {
-                                                console.log(item)
                                                 if (selectedLetters.includes(item)) {
                                                     updatedString(string.replace(item, ""))
                                                 } else {
@@ -256,25 +256,25 @@ const Grid = props => {
                         <View style={{ flex: 1, flexDirection: 'column' }}>
                             <View style={styles.header}>
                                 <Header title="Word Search" />
-                                {/* <View>
-                                    </View> */}
-                                <Text>{`${mins} : ${secs}`}</Text>
-                                <View style={styles.iconHeader}>
-                                    <Ionicons
-                                        name="ios-refresh"
-                                        size={32}
-                                        color="black"
-                                        onPress={() => {
-                                            updatedString("");
-                                            setSelectedLetters([]);
-                                            setCorrectedLetters([])
-                                            setCorrectAnswers([]);
-                                            setColorLetters(new Map());
-                                            colorIndex = 0;
-                                            setRemainingSecs(0);
-                                            setIsActive(false);
-                                        }}
-                                    />
+                                <View style={styles.secondHeader}>
+                                    <Text style={styles.timer}>{`${mins} : ${secs}`}</Text>
+                                    <View style={styles.iconHeader}>
+                                        <Ionicons
+                                            name="ios-refresh"
+                                            size={32}
+                                            color="black"
+                                            onPress={() => {
+                                                updatedString("");
+                                                setSelectedLetters([]);
+                                                setCorrectedLetters([])
+                                                setCorrectAnswers([]);
+                                                setColorLetters(new Map());
+                                                colorIndex = 0;
+                                                setRemainingSecs(0);
+                                                setIsActive(false);
+                                            }}
+                                        />
+                                    </View>
                                 </View>
                             </View>
                             <View style={styles.container, { height: height / 1.56 }}>
@@ -385,7 +385,7 @@ const styles = StyleSheet.create({
     },
     container: {
         height: Dimensions.get('window').height / 1.56,
-        // backgroundColor: 'white',
+        backgroundColor: 'white',
         borderRadius: 7
     },
     landscapeContainer: {
@@ -410,20 +410,34 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         height: 80,
-        width: '80%',
+        width: '65%',
         paddingTop: 36,
         alignItems: 'center',
+        // justifyContent: '',
         paddingBottom: 36,
-        paddingLeft: 20,
-        marginHorizontal: 30
+        paddingLeft: 65,
+        marginHorizontal: 30,
     },
     iconHeader: {
         marginRight: 10,
         flexDirection: 'row',
-        // padding: 10
+        paddingHorizontal: 15
     },
     gameOver: {
         opacity: 0.6
+    },
+    secondHeader: {
+        flexDirection: 'row',
+        marginRight: 20,
+        // backgroundColor: 'red',
+        width: 200,
+        paddingHorizontal: 10
+    },
+    timer: {
+        alignContent: 'center',
+        justifyContent: 'center',
+        marginTop: 5,
+        fontSize: 18
     }
 });
 
