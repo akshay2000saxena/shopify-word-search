@@ -12,12 +12,12 @@ export const data = [
 ];
 
 export const correct = [
-    // 'Swift',
-    // 'Kotlin',
-    // 'ObjectiveC',
-    // 'Variable',
+    'Swift',
+    'Kotlin',
+    'ObjectiveC',
+    'Variable',
     'Java',
-    // 'Mobile',
+    'Mobile',
 ]
 
 export const colors = [

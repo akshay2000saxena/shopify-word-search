@@ -39,7 +39,7 @@ The first screenshot shows the screen before you start the game.
   <img alt="" src="screenshots/portrait2.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/landscape2.jpg" width="1000" /><br>
+  <img alt="" src="screenshots/landscape2.jpg" width="900" /><br>
 </p>
 
 
@@ -51,7 +51,7 @@ The active score counter is in the form of the items in the list which are highl
   <img alt="" src="screenshots/portrait1.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/landscape1.jpg" width="1000" /><br>
+  <img alt="" src="screenshots/landscape1.jpg" width="900" /><br>
 </p>
 
 
@@ -59,7 +59,10 @@ The active score counter is in the form of the items in the list which are highl
 The third screenshot shows the screen where the user has found all the words. (Fix on opacity=0.2 needed) 
 
 <p align="left">
-  <img alt="" src="screenshots/Annotation 2020-05-09 003215.jpg" width="360" /><br>
+  <img alt="" src="screenshots/end1.jpg" width="360" /><br>
+</p>
+<p align="left">
+  <img alt="" src="screenshots/end2.jpg" width="900" /><br>
 </p>
 
 ## Additional Feature
