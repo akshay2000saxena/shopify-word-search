@@ -20,8 +20,21 @@ import GameOverScreen from '../screens/GameOverScreen'
 
 import { data, correct, colors } from '../data/data'
 
-var correctStyle = {}
-var textColor = {}
+var wordsearch = require('../GenerateRandomGrid');
+var search = wordsearch(['mobile', 'kotlin', 'swift', 'java', 'variable', 'objectivec'], 10, 10)
+
+const reset = (search) => {
+    search = wordsearch(['mobile', 'kotlin', 'swift', 'java', 'variable', 'objectivec'], 10, 10);
+    var c = 0;
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < 10; j++) {
+            data[c].value = search.grid[i][j].toUpperCase();
+            c++;
+        }
+    }
+}
+
+
 var words = correct.map(v => v.toLowerCase());
 var colorIndex = 0;
 var tileColor = colors[colorIndex];
@@ -149,6 +162,8 @@ const Grid = props => {
                                             colorIndex = 0;
                                             setRemainingSecs(0);
                                             setIsActive(false);
+                                            // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
+                                            reset(search)
                                         }}
                                     />
                                 </View>
@@ -243,6 +258,8 @@ const Grid = props => {
                         setRemainingSecs={setRemainingSecs}
                         min={min}
                         sec={sec}
+                        search={search}
+                        reset={reset}
                     />}
 
             </View>
@@ -273,6 +290,8 @@ const Grid = props => {
                                                 colorIndex = 0;
                                                 setRemainingSecs(0);
                                                 setIsActive(false);
+                                                // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
+                                                reset(search)
                                             }}
                                         />
                                     </View>
@@ -342,12 +361,10 @@ const Grid = props => {
                                     </View>
                                 </View>
                                 <View style={styles.list}>
-                                    {/* <ScrollView > */}
                                     <List
                                         colorString={colorString}
                                         correctAnswers={correctAnswers}
                                     />
-                                    {/* </ScrollView> */}
                                 </View>
                             </View>
                         </View>
@@ -367,6 +384,8 @@ const Grid = props => {
                         setRemainingSecs={setRemainingSecs}
                         min={min}
                         sec={sec}
+                        search={search}
+                        reset={reset}
                     />}
 
             </View>

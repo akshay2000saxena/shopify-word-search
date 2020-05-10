@@ -31,6 +31,7 @@ const GameOverScreen = props => {
                             props.changeIndex(0)
                             props.setIsActive(true)
                             props.setRemainingSecs(0)
+                            props.reset(props.search)
                         }}
                     />
                 </View>

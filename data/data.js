@@ -16,8 +16,8 @@ export const correct = [
     'Kotlin',
     'ObjectiveC',
     'Variable',
-    'Java',
     'Mobile',
+    'Java',
 ]
 
 export const colors = [

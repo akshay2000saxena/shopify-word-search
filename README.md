@@ -23,7 +23,7 @@ Type these commands into your command line to reproduce:
 - [X] Include at least the following 6 words: Swift, Kotlin, ObjectiveC, Variable, Java, Mobile
 - [X] Keep track of how many words a user has found
 - [X] Make sure it compiles successfully
-- [ ] Randomize where the words are placed
+- [X] Randomize where the words are placed
 - [X] Make a slick UI with smooth animations
 - [X] Make it look good in portrait and landscape
 - [X] Additional features: Timer
@@ -39,7 +39,7 @@ The first screenshot shows the screen before you start the game.
   <img alt="" src="screenshots/portrait2.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/landscape2.jpg" width="900" /><br>
+  <img alt="" src="screenshots/landscape2.jpg" width="800" /><br>
 </p>
 
 
@@ -51,7 +51,7 @@ The active score counter is in the form of the items in the list which are highl
   <img alt="" src="screenshots/portrait1.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/landscape1.jpg" width="900" /><br>
+  <img alt="" src="screenshots/landscape1.jpg" width="800" /><br>
 </p>
 
 
@@ -62,10 +62,15 @@ The third screenshot shows the screen where the user has found all the words. (F
   <img alt="" src="screenshots/end1.jpg" width="360" /><br>
 </p>
 <p align="left">
-  <img alt="" src="screenshots/end2.jpg" width="900" /><br>
+  <img alt="" src="screenshots/end2.jpg" width="800" /><br>
 </p>
 
 ## Additional Feature
+
+### Randomize
+
+Every time a user resets the game or finishes the game, the grid is randomized.
+(Credits to https://github.com/bahamas10/wordsearch.js#wordsearchjs)
 
 ### Timer
 

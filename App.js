@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Dimensions, Portrait } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Portrait, Button } from 'react-native';
 
 import Grid from './components/Grid'
+
+
+
 
 export default function App() {
 
