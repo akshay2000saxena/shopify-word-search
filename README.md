@@ -73,7 +73,7 @@ The third screenshot shows the screen where the user has found all the words. (F
 ### Randomize
 
 Every time a user resets the game or finishes the game, the grid is randomized.
-(Credits to https://github.com/bahamas10/wordsearch.js#wordsearchjs)
+(Used the function created by https://github.com/bahamas10/wordsearch.js#wordsearchjs)
 
 ### Timer
 
