@@ -21,7 +21,7 @@ Type these commands into your command line to reproduce:
 
 ## Tasks
 - [X] Create an Android/iOS word search mobile app
-- [X] The word search should have a 10x10 grid
+- [X] The word search should have at least a 10x10 grid
 - [X] Include at least the following 6 words: Swift, Kotlin, ObjectiveC, Variable, Java, Mobile
 - [X] Keep track of how many words a user has found
 - [X] Make sure it compiles successfully

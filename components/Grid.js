@@ -344,7 +344,7 @@ const Grid = props => {
                                 />
                             </View>
 
-                            <View style={{ margin: 10 }}>
+                            <View style={{ margin: 0 }}>
                                 <View style={styles.textButtonContainer}>
                                     <View>
                                         <Text style={{ fontSize: 18 }}>Word: {string}</Text>

@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     },
     itemText: {
         color: 'white',
+        fontSize: 17
     },
     item: {
         backgroundColor: 'black',
