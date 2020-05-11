@@ -11,7 +11,7 @@ import {
     ScrollView
 } from 'react-native'
 
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import Tile from '../components/Tile'
 import List from '../components/List'
@@ -145,29 +145,30 @@ const Grid = props => {
                 {correct.length !== correctAnswers.length ?
                     <View style={{ flex: 1, flexDirection: 'column' }}>
                         <View style={styles.header}>
+                            <MaterialIcons
+                                name="timer"
+                                size={30}
+                                color="black"
+                            />
+                            <Text style={styles.timer}>{`${mins}:${secs}`}</Text>
                             <Header title="Word Search" />
-                            <View style={styles.secondHeader}>
-                                <Text style={styles.timer}>{`${mins} : ${secs}`}</Text>
-                                <View style={styles.iconHeader}>
-                                    <Ionicons
-                                        name="ios-refresh"
-                                        size={32}
-                                        color="black"
-                                        onPress={() => {
-                                            updatedString("");
-                                            setSelectedLetters([]);
-                                            setCorrectedLetters([])
-                                            setCorrectAnswers([])
-                                            setColorLetters(new Map());
-                                            colorIndex = 0;
-                                            setRemainingSecs(0);
-                                            setIsActive(false);
-                                            // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
-                                            reset(search)
-                                        }}
-                                    />
-                                </View>
-                            </View>
+                            <Ionicons
+                                name="ios-refresh"
+                                size={32}
+                                color="black"
+                                onPress={() => {
+                                    updatedString("");
+                                    setSelectedLetters([]);
+                                    setCorrectedLetters([])
+                                    setCorrectAnswers([])
+                                    setColorLetters(new Map());
+                                    colorIndex = 0;
+                                    setRemainingSecs(0);
+                                    setIsActive(false);
+                                    // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
+                                    reset(search)
+                                }}
+                            />
                         </View>
                         <View style={{ flex: 1, flexDirection: 'row' }}>
                             <View style={styles.landscapeContainer, { height: height / 1.3, width: height / 1.2 }}>
@@ -273,29 +274,30 @@ const Grid = props => {
                     <View>
                         <View style={{ flex: 1, flexDirection: 'column' }}>
                             <View style={styles.header}>
+                                <MaterialIcons
+                                    name="timer"
+                                    size={30}
+                                    color="black"
+                                />
+                                <Text style={styles.timer}>{`${mins}:${secs}`}</Text>
                                 <Header title="Word Search" />
-                                <View style={styles.secondHeader}>
-                                    <Text style={styles.timer}>{`${mins} : ${secs}`}</Text>
-                                    <View style={styles.iconHeader}>
-                                        <Ionicons
-                                            name="ios-refresh"
-                                            size={32}
-                                            color="black"
-                                            onPress={() => {
-                                                updatedString("");
-                                                setSelectedLetters([]);
-                                                setCorrectedLetters([])
-                                                setCorrectAnswers([]);
-                                                setColorLetters(new Map());
-                                                colorIndex = 0;
-                                                setRemainingSecs(0);
-                                                setIsActive(false);
-                                                // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
-                                                reset(search)
-                                            }}
-                                        />
-                                    </View>
-                                </View>
+                                <Ionicons
+                                    name="ios-refresh"
+                                    size={32}
+                                    color="black"
+                                    onPress={() => {
+                                        updatedString("");
+                                        setSelectedLetters([]);
+                                        setCorrectedLetters([])
+                                        setCorrectAnswers([]);
+                                        setColorLetters(new Map());
+                                        colorIndex = 0;
+                                        setRemainingSecs(0);
+                                        setIsActive(false);
+                                        // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
+                                        reset(search)
+                                    }}
+                                />
                             </View>
                             <View style={styles.container, { height: height / 1.56 }}>
                                 <FlatList
@@ -432,13 +434,15 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: 'row',
         height: 80,
-        width: '65%',
+        width: '70%',
         paddingTop: 36,
         alignItems: 'center',
         // justifyContent: '',
         paddingBottom: 36,
-        paddingLeft: 65,
-        marginHorizontal: 30,
+        // paddingLeft: 65,
+        // marginHorizontal: 30,
+        // backgroundColor: 'yellow',
+        justifyContent: 'space-between'
     },
     iconHeader: {
         marginRight: 10,
@@ -459,6 +463,7 @@ const styles = StyleSheet.create({
         alignContent: 'center',
         justifyContent: 'center',
         marginTop: 5,
+        marginLeft: 5,
         fontSize: 18
     }
 });

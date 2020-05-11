@@ -17,6 +17,8 @@ Type these commands into your command line to reproduce:
 2. `npm start` or `expo start` to start the server
 3. `a` or `i` to open the app on an android or an iOS emulator respectively
 
+(If you do not have android emulator installed, just install the expo app on your phone and scan the QR code generated on running expo start)
+
 ## Tasks
 - [X] Create an Android/iOS word search mobile app
 - [X] The word search should have a 10x10 grid
@@ -56,7 +58,7 @@ The active score counter is in the form of the items in the list which are highl
 
 
 ### Game Over Screen
-The third screenshot shows the screen where the user has found all the words. (Fix on opacity=0.2 needed) 
+The third screenshot shows the screen where the user has found all the words. (Fix on opacity=0.2 needed, old screenshot) 
 
 <p align="left">
   <img alt="" src="screenshots/end1.jpg" width="360" /><br>
