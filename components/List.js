@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, FlatList, Dimensions, ScrollView } from 'react-
 import { correct } from '../data/data'
 
 
+// Component for each item in the list
 const ListItem = props => {
     var textColor = {}
     var styleColor = {}
@@ -23,6 +24,7 @@ const ListItem = props => {
     );
 };
 
+// List component
 const List = props => {
 
     const numColumns = 2;

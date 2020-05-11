@@ -53,6 +53,7 @@ const getRemaining = (time) => {
 const Grid = props => {
 
     const numColumns = 10;
+
     const [string, updatedString] = useState("");
     const [selectedLetters, setSelectedLetters] = useState([])
     const [correctedLetters, setCorrectedLetters] = useState([])
@@ -61,15 +62,13 @@ const Grid = props => {
     const [colorString, setColorString] = useState(new Map())
     const [height, setHeight] = useState(Dimensions.get('window').height)
     const [width, setWidth] = useState(Dimensions.get('window').width)
-    const [timerStart, setTimerStart] = useState(false)
-
-
     const [remainingSecs, setRemainingSecs] = useState(0);
     const [isActive, setIsActive] = useState(false);
     const { mins, secs } = getRemaining(remainingSecs);
-
     const [constTime, setConstTime] = useState("")
 
+
+    // increment timer and reset if required
     useEffect(() => {
         let interval = null;
         if (isActive) {
@@ -83,6 +82,7 @@ const Grid = props => {
     }, [isActive, remainingSecs]);
 
 
+    // change height and width when orientation is changed
     useEffect(() => {
         const updateLayout = () => {
             setHeight(Dimensions.get('window').height)
@@ -90,12 +90,9 @@ const Grid = props => {
         };
 
         Dimensions.addEventListener('change', updateLayout)
-        // return () => {
-        //     Dimensions.removeEventListener('change', updateLayout)
-        // };
     })
 
-
+    // If the word formed is correct
     if (words.includes(string.toLowerCase())) {
         setCorrectAnswers(correctAnswers => [...correctAnswers, string.toLowerCase()])
         setCorrectedLetters(correctedLetters => [...correctedLetters, ...selectedLetters])
@@ -114,8 +111,6 @@ const Grid = props => {
         updatedString("");
         colorIndex++;
     }
-
-
 
     const item = {
         backgroundColor: 'black',
@@ -139,6 +134,7 @@ const Grid = props => {
 
     const tileColor = colors[colorIndex];
 
+    //For landscape view
     if (height < 500) {
         return (
             <View style={styles.landscape}>
@@ -165,7 +161,6 @@ const Grid = props => {
                                     colorIndex = 0;
                                     setRemainingSecs(0);
                                     setIsActive(false);
-                                    // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
                                     reset(search)
                                 }}
                             />
@@ -267,7 +262,7 @@ const Grid = props => {
 
         );
     } else {
-
+        // For portrait view
         return (
             <View style={styles.con}>
                 {correct.length !== correctAnswers.length ?
@@ -294,7 +289,6 @@ const Grid = props => {
                                         colorIndex = 0;
                                         setRemainingSecs(0);
                                         setIsActive(false);
-                                        // console.log(search.grid.forEach(function (row) { console.log(row.join(' ')); }))
                                         reset(search)
                                     }}
                                 />
@@ -414,12 +408,10 @@ const styles = StyleSheet.create({
     landscapeContainer: {
         height: Dimensions.get('window').height / 1.3,
         width: Dimensions.get('window').height / 1.2,
-        // backgroundColor: 'red',
         borderRadius: 7
     },
     list: {
         height: Dimensions.get('window').height / 1.5,
-        // backgroundColor: 'red'
     },
     button: {
         borderRadius: 10,
@@ -437,11 +429,7 @@ const styles = StyleSheet.create({
         width: '70%',
         paddingTop: 36,
         alignItems: 'center',
-        // justifyContent: '',
         paddingBottom: 36,
-        // paddingLeft: 65,
-        // marginHorizontal: 30,
-        // backgroundColor: 'yellow',
         justifyContent: 'space-between'
     },
     iconHeader: {
@@ -455,7 +443,6 @@ const styles = StyleSheet.create({
     secondHeader: {
         flexDirection: 'row',
         marginRight: 20,
-        // backgroundColor: 'red',
         width: 200,
         paddingHorizontal: 10
     },

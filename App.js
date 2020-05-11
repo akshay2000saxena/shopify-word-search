@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Dimensions, Portrait, Button } from 'react-native';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 
 import Grid from './components/Grid'
 

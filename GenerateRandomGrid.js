@@ -116,7 +116,7 @@
                     );
                 }
 
-        // give the user some stuff
+        // return the grid
         return {
             grid: grid,
             solved: solved,

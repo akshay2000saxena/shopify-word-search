@@ -16,6 +16,8 @@ const Tile = props => {
     const [height, setHeight] = useState(Dimensions.get('window').height)
     const [width, setWidth] = useState(Dimensions.get('window').width)
 
+
+    // Change height and width when orientation changes
     useEffect(() => {
         const updateLayout = () => {
             setHeight(Dimensions.get('window').height)
@@ -23,9 +25,6 @@ const Tile = props => {
         };
 
         Dimensions.addEventListener('change', updateLayout)
-        // return () => {
-        //     Dimensions.removeEventListener('change', updateLayout)
-        // };
     })
 
 
@@ -41,6 +40,7 @@ const Tile = props => {
         correctText = { color: 'black' }
     }
 
+    // Landscape view
     if (height < 500) {
         return (
             <TouchableOpacity
@@ -50,7 +50,6 @@ const Tile = props => {
                     if (props.selectedLetters.includes(props.ind)) {
                         props.removeLetters(props.ind);
                     }
-                    // console.log('landscape')
                 }}
                 style={[styles.landscapeItem, correctStyle, { height: height / 14 }]}
             >
@@ -60,6 +59,7 @@ const Tile = props => {
             </TouchableOpacity >
         );
     } else {
+        //Portrait view
         return (
             <TouchableOpacity
                 onPress={() => {
@@ -68,7 +68,6 @@ const Tile = props => {
                     if (props.selectedLetters.includes(props.ind)) {
                         props.removeLetters(props.ind);
                     }
-                    // console.log('portrait')
                 }}
                 style={[styles.item, correctStyle, { height: width / 10 }]}
             >
