@@ -14,7 +14,7 @@ This is my submission for the Mobile Development Shopify Coding Challenge
 Type these commands into your command line to reproduce:
 
 1. `git clone https://github.com/akshay2000saxena/shopify-word-search.git` will copy the code here to your machine
-2. `npm install` to install packages
+2. `yarn add expo` in te shopify-word-search directory (`npm intall` install packages if it fails)
 3. `npm start` or `expo start` to start the server
 4. `a` or `i` to open the app on an android or an iOS emulator respectively
 
